@@ -8,11 +8,12 @@ void groupSort(int *arr, int n){
         if(j>n){
             j=n;
         }
-        for(int x=i; x<j-1; x++){
-            for(int y=x+1; y<j; y++){
-                if(arr[x]>arr[y]){
-                    int temp=arr[x];
-                    arr[x]=arr[y];
+        
+        for(i; i<j-1; i++){
+            for(int y=i+1; y<j; y++){
+                if(arr[i]>arr[y]){
+                    int temp=arr[i];
+                    arr[i]=arr[y];
                     arr[y]=temp;
                 }
             }
@@ -42,3 +43,13 @@ int main(){
     free(arr);
     return 0;
 }
+
+// for(int x=i; x<j-1; x++){
+        //     for(int y=x+1; y<j; y++){
+        //         if(arr[x]>arr[y]){
+        //             int temp=arr[x];
+        //             arr[x]=arr[y];
+        //             arr[y]=temp;
+        //         }
+        //     }
+        // }
