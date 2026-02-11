@@ -2,11 +2,11 @@
 #include<stdlib.h>
 
 void sort(int *arr, int start, int end){
-    for(int i=start; i<end-1; i++){
-        for(int j=i+1; j<end; j++){
-            if(arr[i]>arr[j]){
-                int temp=arr[i];
-                arr[i]=arr[j];
+    for(int i=start; i<end; i++){
+        for(int j=start; j<(end-(i-start)); j++){
+            if(arr[j]>arr[j+1]){
+                int temp=arr[j+1];
+                arr[j+1]=arr[j];
                 arr[j]=temp;
             }
         }
@@ -33,7 +33,7 @@ int main(){
             if(end>right){
                 end=right;
             }
-            sort(arr, left, end+1);
+            sort(arr, left, end);
             left=end+1;
         }
         else{
@@ -41,7 +41,7 @@ int main(){
             if(start<left){
                 start=left;
             }
-            sort(arr, start, right+1);
+            sort(arr, start, right);
             right=start-1;
         }
         front=!front;
