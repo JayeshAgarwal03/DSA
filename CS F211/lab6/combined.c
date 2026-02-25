@@ -531,7 +531,7 @@ int main() {
     long long *left = malloc(n * sizeof(long long));
     long long *right = malloc(n * sizeof(long long));
 
-    stack = malloc(n * sizeof(int));   // 🔴 FIX HERE
+    stack = malloc(n * sizeof(int)); 
 
     for (int i = 0; i < n; i++)
         scanf("%lld", &arr[i]);
