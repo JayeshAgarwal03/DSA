@@ -535,7 +535,7 @@ struct Node* insert(struct Node *root, int x){
     return root;
 }
 
-int inorder(struct Node *root, int x){
+int inorderSuccessor(struct Node *root, int x){
     int ans=-1;
 
     while(root){
@@ -562,7 +562,7 @@ int main(){
     }
     scanf("%d", &k);
 
-    int ans=inorder(root, k);
+    int ans=inorderSccessor(root, k);
     printf("%d", ans);
     return 0;
 }
