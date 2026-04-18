@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+
+//dp[i][j] = Does first i characters of s match first j characters of p
+int dp[100][100]={0};
+
+int main(){
+    int n, m;
+    scanf("%d %d", &n, &m);
+
+    char s[100]; char p[100];
+    scanf("%s", s);
+    scanf("%s", p);
+
+    dp[0][0]=1;
+    for(int j=1; j<=m; j++){
+        if(p[j-1]=='*'){
+            dp[0][j]=dp[0][j-1];
+        }
+    }
+
+    for(int i=1; i<=n; i++){
+        for(int j=1; j<=m; j++){
+            if(p[j-1]=='*'){
+                dp[i][j]=dp[i][j-1] || dp[i-1][j];
+            }
+            else if(p[j-1]=='?' || s[i-1]==p[j-1]){
+                dp[i][j]=dp[i-1][j-1];
+            }
+            else{
+                dp[i][j]=0;
+            }
+        }
+    }
+
+    printf("%d\n", dp[n][m]);
+    return 0;
+}
